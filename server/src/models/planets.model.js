@@ -54,6 +54,12 @@ async function savePlanet(planet) {
   }
 }
 
+function getAllPlanets() {
+  return habitablePlanets;
+}
+
+
+
 module.exports = {
   loadPlanetsData,
   getAllPlanets,
