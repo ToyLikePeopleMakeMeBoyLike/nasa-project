@@ -36,6 +36,28 @@ function httpAddNewLaunch(req,res){
     return res.status(201).json(launch);
 }
 
+
+function httpAbortLaunch(req,res) {
+    const launchId = req.params.id;
+
+    if (existsLaunchWithId(launchId
+        
+    ))
+    return res.status(404).json({
+            error: 'launch not found',
+        })
+
+
+
+    // if launch doestn exista
+    return res.status(404).json({
+        error: 'launch not found', 
+    });
+
+
+    return res.status(200).json(aborted);
+}
+
 module.exports ={
     httpGetAllLaunches,
     httpAddNewLaunch,

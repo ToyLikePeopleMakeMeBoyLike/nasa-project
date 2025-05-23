@@ -13,7 +13,8 @@ const launch = {
     mission: 'Kepler exploration X',
     rocket: 'Explorer IS1',
     launchDate: new Date('December 27, 2030'),
-    destination: ' Kepler - 442 b',
+    
+    target: ' Kepler - 442 b',
     customer: ['xtm', 'nasa'],
     upcoming: true,
     success: true,
@@ -21,6 +22,10 @@ const launch = {
 };
 
 launches.set(launch.flightNumber, launch);
+
+function existLaunchWithId(launchId) {
+    return launches.has(launchId);
+}
 
 function getAllLaunches() {
     return Array.from(launches.values());
@@ -40,7 +45,20 @@ function addNewLaunch(launch) {
     }));
 }
 
-module.exports = {
+function abortLaunchById(launchId){
+
+    const aborted =launch.get(launchId);
+    aborted.upcoming = false ;
+    aborted.success =false;
+    return aborted;
+
+
+}
+
+
+module.exports = { 
     getAllLaunches,
     addNewLaunch,
+    existLaunchWithId,
+    abortLaunchById,
 };
