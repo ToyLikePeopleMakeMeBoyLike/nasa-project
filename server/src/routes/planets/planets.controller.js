@@ -7,7 +7,7 @@ async function httpGetAllPlanets(req, res) {
   } catch (error) {
     // Log the error for server-side visibility
     console.error(`Could not get planets: ${error}`);
-    // Return a structured error message to the client
+    // Return a generic error message to the client
     return res.status(500).json({ error: 'Failed to retrieve planets.' });
   }
 }

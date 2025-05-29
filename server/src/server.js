@@ -20,10 +20,7 @@ const server = http.createServer(app);
 async function startServer() {
   await mongoose.connect(MONGO_URL, {
     useNewUrlParser: true,
-    useFindAndModify: false,
-    useCreateIndex: true,
-    useUnifiedTopology:true,
-
+    useUnifiedTopology:true
   });
   await loadPlanetsData();
   
